@@ -15,13 +15,14 @@ clock = pygame.time.Clock()
 
 #Player
 player_img = pygame.image.load('Character.png')
-playerX = 370
-playerY = 480
+player_img_size = pygame.transform.scale(player_img, (200, 325))
+playerX = 0
+playerY = 0
 
 #tree_img = pygame.image.load('C:\Users\Falco\Desktop\PyGame2', 'TREE 1 - DAY.png')
 
 def player():
-    display.blit(player_img, (playerX, playerY))
+    display.blit(player_img_size, (playerX, playerY))
     #pygame.draw.rect(display, "red", (self.x, self.y, self.width, self.height))
     #self.image = pygame.image.load(player_img)
 

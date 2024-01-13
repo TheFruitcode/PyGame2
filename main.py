@@ -58,13 +58,13 @@ while True:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        player.y -= 5
+        player.playerY -= 5
     if keys[pygame.K_s]:
-        player.y += 5
+        player.playerY += 5
     if keys[pygame.K_a]:
-        player.x -= 5
+        player.playerX -= 5
     if keys[pygame.K_d]:
-        player.x += 5
+        player.playerX += 5
 
     #player.main(display)
 

@@ -25,27 +25,11 @@ def player():
     display.blit(player_img_size, (playerX, playerY))
     #pygame.draw.rect(display, "red", (self.x, self.y, self.width, self.height))
     #self.image = pygame.image.load(player_img)
-
-
-#def handle_keys(self):
-#    keys = pygame.key.get_pressed()
-#    dist = 3
-#    if keys[pygame.K_w]:
-#        self.y -= dist
-#    if keys[pygame.K_s]:
-#        self.y += dist
-#    if keys[pygame.K_a]:
-#        self.x -= dist
-#    if keys[pygame.K_d]:
-#        self.x += dist
-#
-#    def draw(self, surface):
-#        surface.blit(self.image, (self.x, self.y))
     
-    #def background(self, surface):
-        #bg = os.path.join('C:\Users\Falco\Desktop\PyGame2', 'grass.png')
-        #self.image2 = pygame.image.load(bg)
-        #surface.blit(self.image2, (0,0))
+#def background(self, surface):
+    #bg = os.path.join('C:\Users\Falco\Desktop\PyGame2', 'grass.png')
+    #self.image2 = pygame.image.load(bg)
+    #surface.blit(self.image2, (0,0))
 
 #class Tree(object):
 #    def __init__(self, x=640, y=0, dist=2):
@@ -71,6 +55,16 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        player.y -= 5
+    if keys[pygame.K_s]:
+        player.y += 5
+    if keys[pygame.K_a]:
+        player.x -= 5
+    if keys[pygame.K_d]:
+        player.x += 5
 
     #player.main(display)
 

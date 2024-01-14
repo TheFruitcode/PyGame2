@@ -61,13 +61,11 @@ class Player(pygame.sprite.Sprite):
 player = Player()
 
 while True:
-    keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-
-    #screen.fill((24,164,86))
+            
     screen.blit(bg, (0,0))
     
     screen.blit(player_img_size, player.pos)

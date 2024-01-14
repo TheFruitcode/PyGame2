@@ -72,8 +72,7 @@ while True:
             
     screen.blit(bg, (0,0))
     
-    if STANDING == True:
-        screen.blit(player_img_size, player.pos)
+    screen.blit(player_img_size, player.pos)
 
     player.update()
 

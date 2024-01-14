@@ -27,6 +27,8 @@ player_img_size4 = pygame.transform.scale(player_img4, (200, 325))
 bg = pygame.transform.scale(pygame.image.load('grass.png').convert(), (WIDTH, HEIGHT))
 
 class Player(pygame.sprite.Sprite):
+    STANDING = True
+
     def __init__(self):
         super().__init__()
         self.pos = pygame.math.Vector2(playerX, playerY)
@@ -37,19 +39,29 @@ class Player(pygame.sprite.Sprite):
         self.velocity_Y = 0
 
         keys = pygame.key.get_pressed()
-    
+
         if keys[pygame.K_w]:
+            player.STANDING = False
             self.velocity_Y = -self.speed
             screen.blit(player_img_size4, player.pos)
+        else:
+            player.STANDING = True
         if keys[pygame.K_s]:
+            player.STANDING = False
             self.velocity_Y = self.speed
             screen.blit(player_img_size, player.pos)
         if keys[pygame.K_a]:
+            player.STANDING = False
             self.velocity_X = -self.speed
             screen.blit(player_img_size2, player.pos)
         if keys[pygame.K_d]:
+            player.STANDING = False
             self.velocity_X = self.speed
             screen.blit(player_img_size3, player.pos)
+        if keys[pygame.K_d] and keys[pygame.K_s]:
+            player.STANDING = False
+        if keys[pygame.K_a] and keys[pygame.K_s]:
+            player.STANDING = False
 
     def move(self):
         self.pos += pygame.math.Vector2(self.velocity_X, self.velocity_Y)
@@ -68,7 +80,7 @@ while True:
             
     screen.blit(bg, (0,0))
     
-    if STANDING == True:
+    if player.STANDING == True:
         screen.blit(player_img_size, player.pos)
 
     player.update()

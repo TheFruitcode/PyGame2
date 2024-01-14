@@ -8,4 +8,4 @@ playerX = 0
 playerY = 0
 PLAYER_SPEED = 5.5
 
-STANDING = True
+#STANDING = True

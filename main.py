@@ -68,6 +68,7 @@ while True:
             
     screen.blit(bg, (0,0))
     
+#if Anweisung
     screen.blit(player_img_size, player.pos)
 
     player.update()

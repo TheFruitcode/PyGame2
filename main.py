@@ -69,7 +69,9 @@ while True:
 
     #screen.fill((24,164,86))
     screen.blit(bg, (0,0))
+    
     screen.blit(player_img_size, player.pos)
+
     player.update()
 
     clock.tick(60)

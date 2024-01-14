@@ -68,7 +68,7 @@ while True:
             
     screen.blit(bg, (0,0))
     
-#if Anweisung
+#if Anweisung gefragt ob Standing=True ist
     screen.blit(player_img_size, player.pos)
 
     player.update()

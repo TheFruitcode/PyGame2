@@ -41,20 +41,16 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_w]:
             self.velocity_Y = -self.speed
             screen.blit(player_img_size4, player.pos)
-            STANDING = False
         if keys[pygame.K_s]:
             self.velocity_Y = self.speed
             screen.blit(player_img_size, player.pos)
-            STANDING = False
         if keys[pygame.K_a]:
             self.velocity_X = -self.speed
             screen.blit(player_img_size2, player.pos)
-            STANDING = False
         if keys[pygame.K_d]:
             self.velocity_X = self.speed
             screen.blit(player_img_size3, player.pos)
-            STANDING = False
-    
+
     def move(self):
         self.pos += pygame.math.Vector2(self.velocity_X, self.velocity_Y)
 
@@ -72,7 +68,8 @@ while True:
             
     screen.blit(bg, (0,0))
     
-    screen.blit(player_img_size, player.pos)
+    if STANDING == True:
+        screen.blit(player_img_size, player.pos)
 
     player.update()
 

@@ -25,6 +25,7 @@ player_img_size4 = pygame.transform.scale(player_img4, (200, 325))
 
 #Tree
 tree = pygame.image.load('TREE_DAY.png')
+tree_size = pygame.transform.scale(tree, (250, 375))
 tree_anzahl = 6
 
 #background
@@ -85,7 +86,7 @@ while True:
     for x in range(tree_anzahl):
         x = random.randint(0, WIDTH - 50)
         y = random.randint(0, HEIGHT - 50)
-        screen.blit(tree, (x, y))
+        screen.blit(tree_size, (x, y))
 
     player.update()
 

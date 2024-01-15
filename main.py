@@ -72,6 +72,14 @@ class Player(pygame.sprite.Sprite):
         self.move()
 player = Player()
 
+class Tree(pygame.sprite.Sprite):
+    TREE_SPAWNING = False
+    def update(self):
+        self.x = random.randint(0, WIDTH - 50)
+        self.y = random.randint(0, HEIGHT - 50)
+        self.TREE_SPAWNING = True
+tree = Tree()
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -83,11 +91,12 @@ while True:
     if player.STANDING == True:
         screen.blit(player_img_size, player.pos)
 
-    for x in range(tree_anzahl):
-        x = random.randint(0, WIDTH - 50)
-        y = random.randint(0, HEIGHT - 50)
-        screen.blit(tree_size, (x, y))
-
+    if tree.TREE_SPAWNING == True:	
+        for i in range(tree_anzahl):
+            screen.blit(tree_size, (tree.x, tree.y))
+            tree.TREE_SPAWNING = False
+    
+    tree.update()
     player.update()
 
     clock.tick(60)

@@ -25,8 +25,8 @@ player_img_size4 = pygame.transform.scale(player_img4, (200, 325))
 
 #Tree
 tree = pygame.image.load('TREE_DAY.png')
-tree_size = pygame.transform.scale(tree, (250, 375))
-tree_anzahl = 6
+tree_size = pygame.transform.scale(tree, (180, 280))
+tree_anzahl = 4
 
 #background
 bg = pygame.transform.scale(pygame.image.load('grass.png').convert(), (WIDTH, HEIGHT))

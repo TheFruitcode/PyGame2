@@ -77,7 +77,7 @@ class Tree(pygame.sprite.Sprite):
     def update(self):
         self.x = random.randint(0, WIDTH - 50)
         self.y = random.randint(0, HEIGHT - 50)
-        self.TREE_SPAWNING = True
+        tree.TREE_SPAWNING = True
 tree = Tree()
 
 while True:

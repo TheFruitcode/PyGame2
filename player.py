@@ -14,42 +14,44 @@ player_img_size4 = pygame.transform.scale(player_img4, (200, 325))
 class Player():
     STANDING = True
 
-    def __init__(self):
-        self.x = 0
-        self.y = 0
+    def __init__(self, game, x, y):
+        self.x = x #0
+        self.y = y #0
         self.speed = 5.5
+        self.game = game
+        self.surface = game.window
 
     def user_input(self):
-        self.velocity_X = 0
-        self.velocity_Y = 0
+    #    self.velocity_X = 0
+    #    self.velocity_Y = 0
 
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_w]:
-            player.STANDING = False
-            self.velocity_Y = -self.speed
-            Game.window.blit(player_img_size4, player.pos)
+            STANDING = False
+            self.x -= self.speed * self.game.delta_time
+            self.game.window.blit(player_img_size4, self.x, self.y)
+        #    self.velocity_Y = -self.speed
         else:
             player.STANDING = True
         if keys[pygame.K_s]:
             player.STANDING = False
-            self.velocity_Y = self.speed
-            Game.window.blit(player_img_size, player.pos)
+            self.x += self.speed * self.game.delta_time
+            self.game.window.blit(player_img_size, self.x, self.y)
         if keys[pygame.K_a]:
             player.STANDING = False
-            self.velocity_X = -self.speed
-            Game.window.blit(player_img_size2, player.pos)
+            self.x -= self.speed * self.game.delta_time
+            self.game.window.blit(player_img_size, self.x, self.y)
         if keys[pygame.K_d]:
             player.STANDING = False
-            self.velocity_X = self.speed
-            Game.window.blit(player_img_size3, player.pos)
+            self.x += self.speed * self.game.delta_time
+            self.game.window.blit(player_img_size, self.x, self.y)
 
-    def move(self):
-        self.pos += pygame.math.Vector2(self.velocity_X, self.velocity_Y)
+    def draw(self):
+        if player.STANDING == True:
+            self.game.window.blit(player_img_size, self.x, self.y)
 
     def update(self):
         self.user_input()
-        self.move()
-
-player = Player()
+        self.draw()
 

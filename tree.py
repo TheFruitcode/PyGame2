@@ -12,4 +12,9 @@ class Tree(pygame.sprite.Sprite):
         self.x = random.randint(0, Game.window_width - 50)
         self.y = random.randint(0, Game.window_height - 50)
         tree.TREE_SPAWNING = True
+
+    #if tree.TREE_SPAWNING == True:	
+    #    for i in range(tree_anzahl):
+    #        Game.window.blit(tree_size, (tree.x, tree.y))
+    #        tree.TREE_SPAWNING = False
 tree = Tree()

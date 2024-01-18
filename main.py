@@ -4,8 +4,8 @@ import time
 import sys
 import random
 import os
-from player import *
-from tree import *
+import player
+import tree
 
 class Game:
     def __init__(self):
@@ -24,21 +24,13 @@ class Game:
                 if event.type == pygame.QUIT:
                     exit()
 
-            if player.STANDING == True:
-                Game.window.blit(player_img_size, player.pos)
-
-            if tree.TREE_SPAWNING == True:	
-                for i in range(tree_anzahl):
-                    Game.window.blit(tree_size, (tree.x, tree.y))
-                    tree.TREE_SPAWNING = False
-
-            bg = pygame.transform.scale(pygame.image.load('grass.png').convert(), (Game.window_width, Game.window_height))
+            bg = pygame.transform.scale(pygame.image.load('grass.png').convert(), (game.window_width, game.window_height))
             Game.window.blit(bg, (0,0))
 
-            tree.update()
-            player.update()
+            #tree.update()
+            #player.update()
 
-            Game.clock.tick(60)
+            self.delta_time = self.clock.tick(60)
             pygame.display.update()
         
         pygame.quit()

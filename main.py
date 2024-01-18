@@ -5,6 +5,8 @@ import sys
 import random
 import os
 from settings import *
+from player import *
+from tree import *
 
 pygame.init()
 

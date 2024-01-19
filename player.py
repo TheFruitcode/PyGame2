@@ -1,5 +1,5 @@
 import pygame
-from main import *
+#from main import *
 
 #Player
 player_img = pygame.image.load('Character.png')
@@ -28,30 +28,33 @@ class Player():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_w]:
-            STANDING = False
+            self.STANDING = False
             self.x -= self.speed * self.game.delta_time
             self.game.window.blit(player_img_size4, self.x, self.y)
         #    self.velocity_Y = -self.speed
         else:
-            player.STANDING = True
+            self.STANDING = True
         if keys[pygame.K_s]:
-            player.STANDING = False
+            self.STANDING = False
             self.x += self.speed * self.game.delta_time
             self.game.window.blit(player_img_size, self.x, self.y)
         if keys[pygame.K_a]:
-            player.STANDING = False
+            self.STANDING = False
             self.x -= self.speed * self.game.delta_time
             self.game.window.blit(player_img_size, self.x, self.y)
         if keys[pygame.K_d]:
-            player.STANDING = False
+            self.STANDING = False
             self.x += self.speed * self.game.delta_time
             self.game.window.blit(player_img_size, self.x, self.y)
 
     def draw(self):
-        if player.STANDING == True:
+        if self.STANDING == True:
             self.game.window.blit(player_img_size, self.x, self.y)
 
     def update(self):
         self.user_input()
         self.draw()
+    
+    
+#player = Player()
 

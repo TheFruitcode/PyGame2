@@ -1,5 +1,4 @@
 import pygame
-#from main import *
 
 #Player
 player_img = pygame.image.load('Character.png')
@@ -20,6 +19,10 @@ class Player():
         self.speed = 5.5
         self.game = game
         self.surface = game.window
+
+    def update(self):
+        self.user_input()
+        self.draw()
 
     def user_input(self):
     #    self.velocity_X = 0
@@ -50,10 +53,6 @@ class Player():
     def draw(self):
         if self.STANDING == True:
             self.game.window.blit(player_img_size, self.x, self.y)
-
-    def update(self):
-        self.user_input()
-        self.draw()
     
     
 #player = Player()
